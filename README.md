@@ -1,16 +1,14 @@
-Project: Physics-Informed Diffusion AI Models for MHD Simulations (Application in Nuclear Fusion Energy),
-Course: CSE 674 - Advanced Machine Learning,
-Semester: Spring 2026, 
-Student: Sarthak Sharma (ss694@buffalo.edu), 
-Institution: State University of New York at Buffalo.
+# Physics-Informed Diffusion AI Model for High-Speed and Accurate Simulations in Magnetohydrodynamics.
+Sarthak Sharma (ss694@buffalo.edu), 
+State University of New York at Buffalo.
 
-Project Overview:
+**Project Overview:**
 This repository contains the source code for a 3-dimensional, physics-informed score-based diffusion 
 model designed to generate structurally accurate Magnetohydrodynamics (MHD) plasma simulations. 
 The model utilizes a multi-modal 3D U-Net backbone and incorporates a Discrete Exterior Calculus (DEC) 
 inspired loss penalty to enforce the divergence-free condition (∇·B = 0) of the generated magnetic fields. 
 
-Included files in the ZIP package:
+**Important code files:**
 * train_ddp.py: The main training loop utilizing PyTorch Distributed Data Parallel (DDP). It handles multi-node scaling, noise scheduling, and the computation of the divergence-free physics loss penalty.
 * unet_3D.py: The architecture definition of the conditional 3D U-Net. It processes 7-channel 3D tensors (Density, Velocity, Magnetic Field) and accepts Mach number conditions via MLP embeddings.
 * MHD_dataset.py: A custom PyTorch `Dataset` class designed to dynamically scan and load multi-trajectory HDF5 files into memory.
@@ -19,7 +17,7 @@ Included files in the ZIP package:
 * MHD_diffusion_scaled_30_epochs.pth: Saved model weights. 
 * README.txt (this file).
 
-Dependencies:
+**Dependencies:**
 The code requires Python 3.10+ and the following libraries:
 * torch (PyTorch with CUDA support recommended), 
 * h5py (For reading the massive HDF5 datasets), 
@@ -30,7 +28,7 @@ The code requires Python 3.10+ and the following libraries:
 
 ---------------------
 
-How to Run the Code:
+**How to Run the Code:**
 
 1. Training the Model (Distributed Data Parallel):
 To train the model from scratch on a supercomputing cluster (like ALCF Polaris), ensure your environment 
@@ -56,7 +54,7 @@ streamlines of the magnetic field.
 
 ---------------------
 
-Acknowledgments and Data Source:
+**Acknowledgments and Data Source:**
 
 Dataset: 
 The training data utilized in this project is from the MHD_64 subset of "The Well", a large-scale 
